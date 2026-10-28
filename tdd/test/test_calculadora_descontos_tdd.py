@@ -54,3 +54,18 @@ def test_nao_deve_cobrar_frete_quando_valor_final_exatamente_100(cliente_padrao)
 
 def test_intersecao_desconto_vip_empurrando_pedido_para_abaixo_de_100(cliente_vip):
     assert calcular_valor_final(cliente_vip, 102.0) == pytest.approx(111.90)
+
+
+def test_deve_lancar_excecao_para_valor_zero(cliente_padrao):
+    with pytest.raises(ValueError):
+        calcular_valor_final(cliente_padrao, 0.0)
+
+
+def test_deve_lancar_excecao_para_valor_negativo(cliente_padrao):
+    with pytest.raises(ValueError):
+        calcular_valor_final(cliente_padrao, -25.0)
+
+
+def test_deve_lancar_excecao_independente_da_categoria_cliente(cliente_vip):
+    with pytest.raises(ValueError):
+        calcular_valor_final(cliente_vip, 0.0)

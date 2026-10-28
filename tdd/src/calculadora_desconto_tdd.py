@@ -13,6 +13,9 @@ class Cliente:
 
 
 def calcular_valor_final(cliente: Cliente, valor_items: float) -> float:
+    if valor_items <= 0:
+        raise ValueError("O valor dos items deve ser maior que zero")
+
     valor_final = valor_items
     if valor_final > 1000:
         valor_final *= 0.8
