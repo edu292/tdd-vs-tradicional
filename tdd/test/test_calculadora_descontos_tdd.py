@@ -42,3 +42,15 @@ def test_cliente_vip_intersecao_faixa_10_porcento(cliente_vip):
 
 def test_cliente_vip_intersecao_faixa_20_porcento(cliente_vip):
     assert calcular_valor_final(cliente_vip, 1200.0) == pytest.approx(912.0)
+
+
+def test_deve_cobrar_frete_quando_valor_final_menor_que_100(cliente_padrao):
+    assert calcular_valor_final(cliente_padrao, 80.0) == 95.0
+
+
+def test_nao_deve_cobrar_frete_quando_valor_final_exatamente_100(cliente_padrao):
+    assert calcular_valor_final(cliente_padrao, 100.0) == 100.0
+
+
+def test_intersecao_desconto_vip_empurrando_pedido_para_abaixo_de_100(cliente_vip):
+    assert calcular_valor_final(cliente_vip, 102.0) == pytest.approx(111.90)

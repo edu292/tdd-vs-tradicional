@@ -22,4 +22,7 @@ def calcular_valor_final(cliente: Cliente, valor_items: float) -> float:
     if cliente.categoria == Categoria.VIP:
         valor_final *= 0.95
 
+    if valor_final < 100:
+        valor_final += 15
+
     return valor_final
