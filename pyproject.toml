@@ -1,0 +1,15 @@
+[project]
+name = "tdd-vs-tradicional"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "edu292", email = "eduskoroboatei@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "pytest>=9.2.0",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
